@@ -1,0 +1,115 @@
+$primary:       #2BB673;
+$secondary:     #00A496;
+$success:       $primary;
+$dark:          #2B2B2B;
+
+@mixin transition($speed) {
+  -webkit-transition: all $speed ease;
+  -moz-transition: all $speed ease;
+  -ms-transition: all $speed ease;
+  -o-transition: all $speed ease;
+  transition: all $speed ease;
+}
+
+.north-circle-image-card {
+  .circle-card {
+
+    &.card {
+      border: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+    .card-header {
+      border: none;
+      margin: 0 30px;
+      border: 5px solid transparent;
+      @include transition(500ms);
+    }
+    .card-body {
+      text-align: center;
+      &.description {
+        font-size: .9em;
+        font-weight: 200;
+      }
+
+      a {
+        text-decoration: none;
+      }
+      h3 {
+        font-size: 1.1em;
+        font-weight: 400;
+      }
+    }
+    &:hover {
+      .card-header {
+        background-color: #F8FFFB;
+        border: 5px solid $primary;
+        @include transition(100ms);
+      }
+    }
+  }
+}
+
+
+.north-full-width-notice {
+  background: linear-gradient(90deg, $primary, $secondary);
+  padding: 30px 0;
+  a {
+    text-decoration: none;
+    color: #fff;
+    &:hover {
+      color: darken(#fff, 20%);
+    }
+  }
+  span.notice-text {
+    font-size: 2em;
+    font-weight: 200;
+    color: #fff;
+  }
+}
+
+
+.north-icon-blocks {
+  .icon-block {
+    display: flex;
+    a, span {
+      display: block;
+      font-weight: 800;
+      &.block-label {
+        flex-grow: 1;
+      }
+    }
+    a {
+
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// XS styles - default: x <= 479px
+//xs: 0,
+//sm: 576px,
+//md: 768px,
+//lg: 992px,
+//xl: 1200px
+@media (max-width: 576px) {
+
+}
+
+// Small styles - default: 480px <= x <= 991px
+@media (min-width: 576px) and (max-width: 992px) {
+
+}
+
+// Medium styles - default: 992px <= x <= 1199px
+@media (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+// Large styles - default: 1200px <= x
+@media (min-width: 1200px) {
+
+}
