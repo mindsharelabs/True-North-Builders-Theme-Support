@@ -35,7 +35,7 @@ add_action('acf/init', function () {
 			'name'              => 'north-portfolio-gallery',
 			'title'             => __('Portfolio Gallery'),
 			'description'       => __('A block that showcases a collection of images and links them to a lightbox.'),
-			'render_template'   => NORTH_ABSPATH . '/inc/block-templates/north-property-showcase.php',
+			'render_template'   => NORTH_ABSPATH . '/inc/block-templates/north-portfolio-gallery.php',
 			'category'          => 'north-blocks',
 			'icon'              => file_get_contents(NORTH_URL . 'inc/img/mind-icon.svg'),
 			'keywords'          => array( 'showcase', 'portfolio', 'property', 'true', 'north', 'Mindshare' ),
