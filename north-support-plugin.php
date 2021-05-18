@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: NM Leep Theme Support Plugin
+Plugin Name: True North Theme Support Plugin
 Plugin URI: https://mind.sh/are
 Description: Provides a library of additional template tags, 3rd-party libraries, Gutenberg BLocks, and functions for WordPress themes and additional features for WordPress CMS websites.
 Author: Mindshare Labs, Inc
@@ -50,7 +50,7 @@ class leepPlugin {
     include_once NORTH_ABSPATH . 'inc/blocks.php';
     include_once NORTH_ABSPATH . 'inc/scripts-and-styles.php';
     include_once NORTH_ABSPATH . 'inc/ajax.php';
-    // include_once NORTH_ABSPATH . 'inc/utilities.php';
+
   }
 
 

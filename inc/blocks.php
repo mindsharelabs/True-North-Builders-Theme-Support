@@ -9,7 +9,7 @@ add_filter('block_categories', function ($categories, $post) {
 		array(
 			array(
 				'slug' 	=> 'north-blocks',
-				'title' => __('NM Leep Blocks', 'mindshare'),
+				'title' => __('True North Blocks', 'mindshare'),
 				'icon' 	=> file_get_contents(NORTH_URL . 'inc/img/mind-icon.svg'),
 			),
 
@@ -32,13 +32,13 @@ add_action('acf/init', function () {
 	if( function_exists('acf_register_block_type') ) {
 
 		acf_register_block_type(array(
-			'name'              => 'north-circle-image-card',
-			'title'             => __('Circle Image Card'),
-			'description'       => __('A block that displays a simple card with a circled featured image.'),
-			'render_template'   => NORTH_ABSPATH . '/inc/block-templates/north-circle-image-card.php',
+			'name'              => 'north-portfolio-gallery',
+			'title'             => __('Portfolio Gallery'),
+			'description'       => __('A block that showcases a collection of images and links them to a lightbox.'),
+			'render_template'   => NORTH_ABSPATH . '/inc/block-templates/north-property-showcase.php',
 			'category'          => 'north-blocks',
 			'icon'              => file_get_contents(NORTH_URL . 'inc/img/mind-icon.svg'),
-			'keywords'          => array( 'cards', 'circle', 'repeater', 'image', 'leep', 'Mindshare' ),
+			'keywords'          => array( 'showcase', 'portfolio', 'property', 'true', 'north', 'Mindshare' ),
 			'align'             => 'full',
 			'mode'            	=> 'edit',
 			'supports'					=> array(
@@ -46,8 +46,66 @@ add_action('acf/init', function () {
 			),
 			'enqueue_assets' => function(){
 				// We're just registering it here and then with the action get_footer we'll enqueue it.
-				wp_register_style( 'block-styles', NORTH_URL . '/inc/css/block-styles.css' );
-				add_action( 'get_footer', function () {wp_enqueue_style('block-styles');});
+				wp_register_style( 'north-block-styles', NORTH_URL . 'inc/css/block-styles.css' );
+				add_action( 'get_footer', function () {wp_enqueue_style('north-block-styles');});
+
+				wp_register_style( 'lightbox-css', NORTH_URL . 'inc/css/lightbox.css' );
+				add_action( 'get_footer', function () {wp_enqueue_style('lightbox-css');});
+
+				wp_register_script('lightbox-js', NORTH_URL. 'inc/js/lightbox.js', array('jquery'), MAPI_PLUGIN_VERSION, true);
+				wp_enqueue_script('lightbox-js');
+
+				},
+			)
+		);
+
+
+		acf_register_block_type(array(
+			'name'              => 'north-property-showcase',
+			'title'             => __('Property Showcase Block'),
+			'description'       => __('A block that showcases a collection of images and links them to a lightbox.'),
+			'render_template'   => NORTH_ABSPATH . '/inc/block-templates/north-property-showcase.php',
+			'category'          => 'north-blocks',
+			'icon'              => file_get_contents(NORTH_URL . 'inc/img/mind-icon.svg'),
+			'keywords'          => array( 'showcase', 'property', 'true', 'north', 'Mindshare' ),
+			'align'             => 'full',
+			'mode'            	=> 'edit',
+			'supports'					=> array(
+				'align' => false,
+			),
+			'enqueue_assets' => function(){
+				// We're just registering it here and then with the action get_footer we'll enqueue it.
+				wp_register_style( 'north-block-styles', NORTH_URL . 'inc/css/block-styles.css' );
+				add_action( 'get_footer', function () {wp_enqueue_style('north-block-styles');});
+
+				wp_register_style( 'lightbox-css', NORTH_URL . 'inc/css/lightbox.css' );
+				add_action( 'get_footer', function () {wp_enqueue_style('lightbox-css');});
+
+				wp_register_script('lightbox-js', NORTH_URL. 'inc/js/lightbox.js', array('jquery'), MAPI_PLUGIN_VERSION, true);
+				wp_enqueue_script('lightbox-js');
+
+				},
+			)
+		);
+
+
+		acf_register_block_type(array(
+			'name'              => 'north-circle-image-card',
+			'title'             => __('Circle Image Card'),
+			'description'       => __('A block that displays a simple card with a circled featured image.'),
+			'render_template'   => NORTH_ABSPATH . '/inc/block-templates/north-circle-image-card.php',
+			'category'          => 'north-blocks',
+			'icon'              => file_get_contents(NORTH_URL . 'inc/img/mind-icon.svg'),
+			'keywords'          => array( 'cards', 'circle', 'repeater', 'image', 'north', 'Mindshare' ),
+			'align'             => 'full',
+			'mode'            	=> 'edit',
+			'supports'					=> array(
+				'align' => false,
+			),
+			'enqueue_assets' => function(){
+				// We're just registering it here and then with the action get_footer we'll enqueue it.
+				wp_register_style( 'north-block-styles', NORTH_URL . '/inc/css/block-styles.css' );
+				add_action( 'get_footer', function () {wp_enqueue_style('north-block-styles');});
 
 				},
 			)
@@ -59,7 +117,7 @@ add_action('acf/init', function () {
 			'render_template'   => NORTH_ABSPATH . '/inc/block-templates/north-social-icons.php',
 			'category'          => 'north-blocks',
 			'icon'              => file_get_contents(NORTH_URL . 'inc/img/mind-icon.svg'),
-			'keywords'          => array( 'social', 'media', 'icons', 'leep', 'Mindshare' ),
+			'keywords'          => array( 'social', 'media', 'icons', 'north', 'Mindshare' ),
 			'align'             => 'full',
 			'mode'            	=> 'edit',
 			'supports'					=> array(
@@ -67,8 +125,8 @@ add_action('acf/init', function () {
 			),
 			'enqueue_assets' => function(){
 				// We're just registering it here and then with the action get_footer we'll enqueue it.
-				wp_register_style( 'block-styles', NORTH_URL . '/inc/css/block-styles.css' );
-				add_action( 'get_footer', function () {wp_enqueue_style('block-styles');});
+				wp_register_style( 'north-block-styles', NORTH_URL . '/inc/css/block-styles.css' );
+				add_action( 'get_footer', function () {wp_enqueue_style('north-block-styles');});
 
 				},
 			)
@@ -82,7 +140,7 @@ add_action('acf/init', function () {
 			'render_template'   => NORTH_ABSPATH . '/inc/block-templates/north-full-width-notice.php',
 			'category'          => 'north-blocks',
 			'icon'              => file_get_contents(NORTH_URL . 'inc/img/mind-icon.svg'),
-			'keywords'          => array( 'notice', 'application', 'leep', 'Mindshare' ),
+			'keywords'          => array( 'notice', 'application', 'north', 'Mindshare' ),
 			'align'             => 'full',
 			'mode'            	=> 'edit',
 			'supports'					=> array(
@@ -90,8 +148,8 @@ add_action('acf/init', function () {
 			),
 			'enqueue_assets' => function(){
 				// We're just registering it here and then with the action get_footer we'll enqueue it.
-				wp_register_style( 'block-styles', NORTH_URL . '/inc/css/block-styles.css' );
-				add_action( 'get_footer', function () {wp_enqueue_style('block-styles');});
+				wp_register_style( 'north-block-styles', NORTH_URL . '/inc/css/block-styles.css' );
+				add_action( 'get_footer', function () {wp_enqueue_style('north-block-styles');});
 
 				},
 			)
@@ -104,7 +162,7 @@ add_action('acf/init', function () {
 			'render_template'   => NORTH_ABSPATH . '/inc/block-templates/north-icon-blocks.php',
 			'category'          => 'north-blocks',
 			'icon'              => file_get_contents(NORTH_URL . 'inc/img/mind-icon.svg'),
-			'keywords'          => array( 'icon', 'block', 'horizontal', 'check', 'leep', 'Mindshare' ),
+			'keywords'          => array( 'icon', 'block', 'horizontal', 'check', 'north', 'Mindshare' ),
 			'align'             => 'full',
 			'mode'            	=> 'edit',
 			'supports'					=> array(
@@ -112,8 +170,8 @@ add_action('acf/init', function () {
 			),
 			'enqueue_assets' => function(){
 				// We're just registering it here and then with the action get_footer we'll enqueue it.
-				wp_register_style( 'block-styles', NORTH_URL . '/inc/css/block-styles.css' );
-				add_action( 'get_footer', function () {wp_enqueue_style('block-styles');});
+				wp_register_style( 'north-block-styles', NORTH_URL . '/inc/css/block-styles.css' );
+				add_action( 'get_footer', function () {wp_enqueue_style('north-block-styles');});
 
 				},
 			)
