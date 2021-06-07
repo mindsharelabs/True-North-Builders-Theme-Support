@@ -33,7 +33,7 @@ if($property_showcase) :
     echo '<div class="row">';
 
       echo '<div class="col-12 col-md-4 order-first ' . ($property_showcase['gallery_location'] == 'right' ? 'order-md-last' : '') . '">';
-        echo '<div class="card border-0 d-flex h-100 flex-column">';
+        echo '<div class="card border-0 d-flex h-100 flex-column bg-white p-3">';
           if($link = $property_showcase['card_info']['button_link']) :
             echo '<a href="' . $link['url'] . '" title="' . $link['title'] . '" target="' . $link['target'] . '">';
           endif;
@@ -57,11 +57,13 @@ if($property_showcase) :
           echo '</div>';
         echo '</div>';
       echo '</div>';
+
+
       if($property_showcase['gallery_images']) :
         echo '<div class="col-12 col-md-8 gallery-images">';
-          echo '<div class="row">';
+          echo '<div class="row bg-white py-3 h-100 justify-content-start">';
           foreach ($property_showcase['gallery_images'] as $key => $image) :
-            echo '<div class="col-4 mb-4 gallery-image">';
+            echo '<div class="col-4 mb-4 gallery-image align-self-start">';
               echo '<a href="' . $image['url'] . '" data-lightbox="lightbox-' . $id .'">';
                 echo wp_get_attachment_image( $image['id'], 'thumbnail', false, array('class' => 'w-100'));
               echo '</a>';

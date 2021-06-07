@@ -11,16 +11,23 @@ $dark:          #2B2B2B;
   transition: all $speed ease;
 }
 .north-property-showcase {
-  background: #fff;
-  .gallery-images {
-    .gallery-image {
-      @include transition(500ms);
-      &:hover {
-        transform: scale(1.05);
-        @include transition(100ms);
+  .card {
+    background: #fff;
+    .card-body {
+      font-size: .8em;
+      line-height: 1.15em;
+    }
+    .gallery-images {
+      .gallery-image {
+        @include transition(500ms);
+        &:hover {
+          transform: scale(1.05);
+          @include transition(100ms);
+        }
       }
     }
   }
+
 }
 .north-circle-image-card {
   .circle-card {
